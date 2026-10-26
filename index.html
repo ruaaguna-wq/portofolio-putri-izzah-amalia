@@ -1,0 +1,882 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Putri Izzah Amalia Bachtiar | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --pink: #e96e9b;
+            --pink-dark: #c94e7d;
+            --pink-light: #fff0f5;
+            --text: #29232a;
+            --muted: #716872;
+            --white: #ffffff;
+            --border: #f1dce5;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #fffafb;
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* NAVBAR */
+        header {
+            background: rgba(255, 250, 251, 0.95);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            min-height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--pink-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--pink-dark);
+        }
+
+        .menu-btn {
+            display: none;
+            border: none;
+            background: var(--pink-light);
+            color: var(--pink-dark);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+
+        /* HERO */
+        .hero {
+            padding: 85px 0;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 55px;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 7px 15px;
+            background: var(--pink-light);
+            color: var(--pink-dark);
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.15;
+            letter-spacing: -1px;
+        }
+
+        h1 span {
+            color: var(--pink-dark);
+        }
+
+        .hero-text p {
+            color: var(--muted);
+            margin: 22px 0 28px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-primary {
+            background: var(--pink-dark);
+            color: white;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border);
+            background: white;
+        }
+
+        /* FOTO PROFIL */
+        .photo-frame {
+            width: 100%;
+            max-width: 330px;
+            height: 410px;
+            margin: auto;
+            padding: 12px;
+            background: linear-gradient(135deg, #f8a9c5, #fce4ed);
+            border-radius: 48% 48% 25px 25px;
+            box-shadow: 0 18px 45px #97466920;
+            transform: rotate(2deg);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: inherit;
+            transform: rotate(-2deg);
+        }
+
+        .photo-placeholder {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            background: #fff7fa;
+            border-radius: inherit;
+            color: var(--pink-dark);
+            transform: rotate(-2deg);
+        }
+
+        .photo-placeholder .camera {
+            font-size: 3rem;
+        }
+
+        .photo-placeholder small {
+            color: var(--muted);
+            margin-top: 8px;
+        }
+
+        /* GENERAL SECTION */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-pink {
+            background: var(--pink-light);
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-heading .subtitle {
+            color: var(--pink-dark);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            margin-top: 8px;
+            line-height: 1.3;
+        }
+
+        .section-heading p {
+            max-width: 650px;
+            margin: 12px auto 0;
+            color: var(--muted);
+        }
+
+        /* ABOUT ME */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 25px;
+        }
+
+        .profile-card,
+        .about-card,
+        .skill-card,
+        .achievement-card,
+        .contact-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            padding: 28px;
+            box-shadow: 0 10px 30px #9746690d;
+        }
+
+        .profile-card {
+            background: linear-gradient(150deg, white, #fff0f5);
+        }
+
+        .profile-icon {
+            width: 70px;
+            height: 70px;
+            display: grid;
+            place-items: center;
+            background: #ffe1ec;
+            border-radius: 20px;
+            font-size: 2rem;
+            margin-bottom: 18px;
+        }
+
+        .profile-card h3 {
+            font-size: 1.3rem;
+            line-height: 1.4;
+            margin-bottom: 18px;
+        }
+
+        .detail {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+            color: var(--muted);
+            overflow-wrap: anywhere;
+        }
+
+        .detail b {
+            min-width: 65px;
+            color: var(--text);
+        }
+
+        .about-card p {
+            color: var(--muted);
+        }
+
+        .about-card p + p {
+            margin-top: 14px;
+        }
+
+        /* SKILLS */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            transition: 0.3s;
+        }
+
+        .skill-card:hover,
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 45px #97466920;
+        }
+
+        .skill-icon {
+            width: 55px;
+            height: 55px;
+            display: grid;
+            place-items: center;
+            border-radius: 16px;
+            background: var(--pink-light);
+            font-size: 1.7rem;
+            margin-bottom: 18px;
+        }
+
+        .skill-card h3,
+        .achievement-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .skill-card p,
+        .achievement-card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            background: var(--pink-light);
+            color: var(--pink-dark);
+            font-size: 0.78rem;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 30px;
+        }
+
+        /* ACHIEVEMENT */
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .achievement-card {
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .achievement-card::before {
+            content: "";
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--pink-light);
+            right: -35px;
+            top: -40px;
+        }
+
+        .trophy {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .achievement-card h3,
+        .achievement-card p,
+        .achievement-card .tags {
+            position: relative;
+        }
+
+        /* CONTACT */
+        .contact-card {
+            max-width: 760px;
+            margin: auto;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .contact-card p {
+            color: var(--muted);
+            margin: 12px 0 22px;
+        }
+
+        .email {
+            color: var(--pink-dark);
+            font-weight: 800;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-card .buttons {
+            justify-content: center;
+            margin-top: 25px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 25px 0;
+            color: var(--muted);
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+
+        .heart {
+            color: var(--pink-dark);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+            .hero-content,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .photo-frame {
+                max-width: 290px;
+                height: 360px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                gap: 14px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .menu-btn {
+                display: block;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                padding: 12px 0;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+                padding: 10px 0;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 10px 0;
+            }
+
+            .hero {
+                padding: 55px 0 65px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .skills-grid,
+            .achievement-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-card,
+            .about-card,
+            .skill-card,
+            .achievement-card,
+            .contact-card {
+                padding: 23px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo">Caca<span class="heart">.</span></a>
+
+            <button class="menu-btn" id="menuBtn"
+                aria-label="Buka navigasi" aria-expanded="false">
+                ☰
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">What Can I Do</a></li>
+                <li><a href="#achievement">Achievement</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HOME -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+
+            <div class="hero-text">
+                <span class="badge">✨ Welcome to My Portfolio</span>
+
+                <h1>
+                    Hi, I'm <span>Putri Izzah</span><br>
+                    Amalia Bachtiar.
+                </h1>
+
+                <p>
+                    Mahasiswa S1 Sistem Informasi yang tertarik pada dunia
+                    desain kreatif, khususnya poster dan infografis.
+                    Aku senang mengubah ide menjadi visual yang menarik
+                    dan mudah dipahami.
+                </p>
+
+                <div class="buttons">
+                    <a href="#achievement" class="btn btn-primary">
+                        Lihat Pencapaian ↗
+                    </a>
+
+                    <a href="#contact" class="btn btn-outline">
+                        Hubungi Aku
+                    </a>
+                </div>
+            </div>
+
+            <!-- FOTO PROFIL
+                 Letakkan foto-profil.jpg dalam folder yang sama
+                 dengan index.html. -->
+            <div class="photo-frame">
+                <div class="photo-placeholder" id="photoFallback">
+                    <div class="camera">📷</div>
+                    <strong>Foto Profil Caca</strong>
+                    <small>
+                        Ganti dengan foto kamu.
+                    </small>
+                </div>
+
+                <img
+                    id="profilePhoto"
+                    src="foto-profil.jpg"
+                    alt="Foto profil Putri Izzah Amalia Bachtiar"
+                    style="display: none;"
+                >
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT ME -->
+    <section class="section-pink" id="about">
+        <div class="container">
+
+            <div class="section-heading">
+                <span class="subtitle">Get to Know Me</span>
+                <h2>About Me</h2>
+                <p>
+                    Sedikit cerita tentang aku, perjalanan kuliah,
+                    dan hal-hal yang aku sukai.
+                </p>
+            </div>
+
+            <div class="about-grid">
+
+                <div class="profile-card">
+                    <div class="profile-icon">🎀</div>
+
+                    <h3>Putri Izzah Amalia Bachtiar</h3>
+
+                    <div class="detail">
+                        <b>Panggilan</b>
+                        <span>Caca</span>
+                    </div>
+
+                    <div class="detail">
+                        <b>NIM</b>
+                        <span>26051214058</span>
+                    </div>
+
+                    <div class="detail">
+                        <b>Prodi</b>
+                        <span>S1 Sistem Informasi</span>
+                    </div>
+
+                    <div class="detail">
+                        <b>Kampus</b>
+                        <span>Universitas Negeri Surabaya</span>
+                    </div>
+
+                    <div class="detail">
+                        <b>Angkatan</b>
+                        <span>2026</span>
+                    </div>
+                </div>
+
+                <div class="about-card">
+                    <p>
+                        Halo! Nama aku Putri Izzah Amalia Bachtiar,
+                        biasanya dipanggil Caca. Aku mahasiswa baru
+                        Universitas Negeri Surabaya tahun 2026 di
+                        program studi S1 Sistem Informasi.
+                    </p>
+
+                    <p>
+                        Akhir-akhir ini, aktivitasku banyak berfokus
+                        pada perkuliahan, mulai dari mengerjakan tugas
+                        kreatif hingga mengikuti beberapa lomba untuk
+                        keperluan nilai UTS.
+                    </p>
+
+                    <p>
+                        Aku memiliki ketertarikan pada desain poster
+                        dan infografis. Karena itu, aku sering
+                        mengeksplorasi aplikasi desain seperti Canva
+                        dan Adobe Photoshop untuk menuangkan ide
+                        menjadi karya visual.
+                    </p>
+
+                    <p>
+                        Melalui portofolio ini, aku ingin
+                        mendokumentasikan proses belajar, karya,
+                        dan pencapaian yang menjadi bagian dari
+                        perjalananku.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT CAN I DO -->
+    <section id="skills">
+        <div class="container">
+
+            <div class="section-heading">
+                <span class="subtitle">Creative Interests</span>
+                <h2>What Can I Do?</h2>
+                <p>
+                    Hal-hal yang sedang aku tekuni dan kembangkan
+                    dalam perjalanan kreatifku.
+                </p>
+            </div>
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <h3>Poster Design</h3>
+                    <p>
+                        Menyusun elemen visual, warna, dan tipografi
+                        untuk menyampaikan pesan dengan cara
+                        yang menarik.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Canva</span>
+                        <span class="tag">Visual Design</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">📊</div>
+                    <h3>Infographic Design</h3>
+                    <p>
+                        Mengolah informasi menjadi tampilan visual
+                        yang ringkas, terstruktur, dan mudah dipahami.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Infografis</span>
+                        <span class="tag">Data Visual</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🖥️</div>
+                    <h3>Design Tools</h3>
+                    <p>
+                        Menggunakan aplikasi desain untuk mengeksplorasi
+                        ide dan mengembangkan karya kreatif.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Canva</span>
+                        <span class="tag">Adobe Photoshop</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ACHIEVEMENT -->
+    <section class="section-pink" id="achievement">
+        <div class="container">
+
+            <div class="section-heading">
+                <span class="subtitle">Milestones</span>
+                <h2>Achievement</h2>
+                <p>
+                    Pencapaian yang menjadi pengalaman berharga
+                    dan motivasi untuk terus berkarya.
+                </p>
+            </div>
+
+            <div class="achievement-grid">
+
+                <div class="achievement-card">
+                    <div class="trophy">🥈</div>
+
+                    <h3>
+                        Juara 2 Lomba Infografis Tingkat Provinsi
+                    </h3>
+
+                    <p>
+                        Meraih juara kedua dalam lomba infografis
+                        tingkat provinsi yang diselenggarakan oleh
+                        STIKOM Bali pada tahun 2026.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">2026</span>
+                        <span class="tag">Infografis</span>
+                        <span class="tag">Tingkat Provinsi</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="trophy">🏆</div>
+
+                    <h3>Juara Favorit Film Pendek</h3>
+
+                    <p>
+                        Meraih juara favorit dalam pembuatan film
+                        pendek secara berkelompok yang diadakan
+                        oleh salah satu lembaga setempat pada
+                        tahun 2025.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">2025</span>
+                        <span class="tag">Film Pendek</span>
+                        <span class="tag">Kerja Tim</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+
+            <div class="section-heading">
+                <span class="subtitle">Let's Connect</span>
+                <h2>Contact Me</h2>
+                <p>
+                    Punya ide, kolaborasi, atau ingin berkenalan?
+                    Jangan ragu untuk menghubungiku!
+                </p>
+            </div>
+
+            <div class="contact-card">
+                <div class="skill-icon" style="margin: 0 auto 15px;">
+                    💌
+                </div>
+
+                <h3>Let's Make Something Creative!</h3>
+
+                <p>
+                    Kamu bisa menghubungiku melalui email berikut.
+                </p>
+
+                <a
+                    class="email"
+                    href="mailto:ccanva.ca@gmail.com">
+                    ccanva.ca@gmail.com
+                </a>
+
+                <div class="buttons">
+                    <a
+                        href="mailto:ccanva.ca@gmail.com"
+                        class="btn btn-primary">
+                        Kirim Email ↗
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            © <span id="year"></span>
+            Putri Izzah Amalia Bachtiar ·
+            Made with <span class="heart">♥</span>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Menu navigasi untuk tampilan HP
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", function () {
+            const isOpen = navLinks.classList.toggle("open");
+
+            menuBtn.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
+
+            menuBtn.textContent = isOpen ? "✕" : "☰";
+        });
+
+        // Tutup menu setelah salah satu link diklik
+        navLinks.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("open");
+                menuBtn.setAttribute("aria-expanded", "false");
+                menuBtn.textContent = "☰";
+            });
+        });
+
+        // Tahun pada footer mengikuti tahun saat ini
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+        // Tampilkan foto jika file foto tersedia
+        const profilePhoto = document.getElementById("profilePhoto");
+        const photoFallback = document.getElementById("photoFallback");
+
+        profilePhoto.addEventListener("load", function () {
+            profilePhoto.style.display = "block";
+            photoFallback.style.display = "none";
+        });
+
+        profilePhoto.addEventListener("error", function () {
+            profilePhoto.style.display = "none";
+            photoFallback.style.display = "flex";
+        });
+    </script>
+
+</body>
+</html>
